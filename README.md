@@ -1,4 +1,4 @@
-# StabiGen - Backend API
+# StabiGen 🧬💊 - Backend API
 
 Un backend robusto construido con Node.js, Express.js y MongoDB para gestión de usuarios con autenticación JWT y sistema de roles.
 
