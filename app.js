@@ -1,5 +1,6 @@
 import express from "express";
 import cookieParser from "cookie-parser";
+import cors from "cors";
 import { ShowErrorMessage } from "./src/config/envs.js";
 import ConnectDB from "./src/db/database.js";
 import authRoutes from "./src/routes/auth.routes.js";
@@ -18,6 +19,12 @@ function ServerApp() {
   const PORT = process.env.PORT || 3000;
 
   // middleware básico
+  app.use(cors({
+    origin: ['http://localhost:4200', 'http://localhost:57642'], // URLs del frontend Angular
+    credentials: true, // Permitir cookies
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+  }));
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));
   app.use(cookieParser());

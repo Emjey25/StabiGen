@@ -4,13 +4,13 @@ import { User } from "../models/user.js";
 
 // Puedes exportar la función directamente
 export const signupService = async ({ name, email, password, role }) => {
-  // Validar datos
-  if (!name || !email || !password || !role) {
+  // Validar datos obligatorios (role es opcional)
+  if (!name || !email || !password) {
     return {
       status: HTTP_STATUS.BAD_REQUEST,
       response: {
         VALIDATION_ERROR: true,
-        message: "Todos los campos son obligatorios",
+        message: "Nombre, email y contraseña son obligatorios",
       },
     };
   }
