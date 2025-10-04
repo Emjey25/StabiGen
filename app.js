@@ -20,7 +20,7 @@ function ServerApp() {
 
   // middleware básico
   app.use(cors({
-    origin: ['http://localhost:4200', 'http://localhost:57642'], // URLs del frontend Angular
+    origin:"*",
     credentials: true, // Permitir cookies
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization']
